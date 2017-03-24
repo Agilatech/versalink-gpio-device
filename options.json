@@ -1,0 +1,9 @@
+{
+    "name":"GPIN",
+    "gpio": 60,
+    "direction": "in",
+    "edge": "rising",
+    "debounce": 20,
+    "streamPeriod": 0,
+    "devicePoll": 3600000
+}

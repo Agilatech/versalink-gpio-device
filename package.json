@@ -1,0 +1,30 @@
+{
+  "name": "@agilatech/versalink-gpio-device",
+  "version": "0.8.0",
+  "description": "Gpio output device driver for use in the Agilatech VersaLink system",
+  "main": "gpio-scout.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://scott@209.200.216.6:22125/volume1/git_repos/versalink-gpio-device"
+  },
+  "keywords": [
+    "sensor",
+    "gpio",
+    "output",
+    "beaglebone",
+    "raspberry pi"
+  ],
+  "author": "Agilatech <scott@agilatech.com> (http://agilatech.com)",
+  "license": "SEE LICENSE IN LICENSE",
+  "dependencies": {
+    "@agilatech/versalink-device": "*",
+    "zetta-scout": "*",
+    "@agilatech/gpio": "*"
+  }
+}
