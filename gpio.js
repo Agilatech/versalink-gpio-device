@@ -4,15 +4,15 @@ const device = require('@agilatech/gpio');
 
 module.exports = class Gpio extends VersalinkDevice {
     
-    constructor(options) {
+    constructor(config) {
 
-        if ((options['gpio'] == null) || (options['gpio'] === 'undefined')) {
+        if ((config['gpio'] == null) || (config['gpio'] === 'undefined')) {
             throw 'Gpio exception: gpio pin not defined';
         }
 
-        const hardware = new device(options['gpio'], options['direction'], options['edge'], options['debounce']);
+        const hardware = new device(config['gpio'], config['direction'], config['edge'], config['debounce']);
 
-        super(hardware, options);
+        super(hardware, config);
 
         this.hardware.watch((this._inputEvent).bind(this));   
     }

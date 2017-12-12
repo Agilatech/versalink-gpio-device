@@ -1,4 +1,4 @@
-##VersaLink GpOut Sensor device driver
+##VersaLink Gpio Sensor device driver
 
 This device driver is specifically designed to be used with the Agilatech VersaLink IOT System.
 
@@ -14,12 +14,12 @@ const versalink = require('@agilatech/versalink-server');
 var gpio = require('@agilatech/versalink-gpio-device');
 
 versalink()
-.use(gpio, [options])  // where [options] define operational paramters -- omit to accept defaults
+.use(gpio, [config])  // where [config] define operational paramters -- omit to accept defaults
 .listen(<port number>)   // where <port number> is the port on which the VersaLink server should listen
 ```
 
-####options
-_options_ is an object which contains key/value pairs used for driver configuration.
+####config
+_config_ is an object which contains key/value pairs used for driver configuration.
 
 ```
 "gpio":<gpio>
@@ -44,20 +44,20 @@ Period in milliseconds for broadcast of streaming values
 Period in milliseconds in which device will be polled
 ```
 
-#### gpio is a manatory options parameter
-Either in the .use statement or the options.json file, **gpio** must be defined to be the valid gpio pin number of the input or output.  Note that this number may not be the same as the physical connector pin number on the board.
+#### gpio is a manatory config parameter
+Either in the .use statement or the config.json file, **gpio** must be defined to be the valid gpio pin number of the input or output.  Note that this number may not be the same as the physical connector pin number on the board.
 
 
 ####streamPeriod and devicePoll
-These options have little applicability for an output device such as this.  Since this device only updates the
+These config have little applicability for an output device such as this.  Since this device only updates the
 level property when commanded to do so, it makes little sense to stream the value or poll the device for a new value.
-Because of this, it is advisable to **set streamPeriod to 0**, which disables streaming, and set the devicePoll to some arbitrarily large value. Regardless of the setting of these options, the **level** will be updated when it is changed.
+Because of this, it is advisable to **set streamPeriod to 0**, which disables streaming, and set the devicePoll to some arbitrarily large value. Regardless of the setting of these config, the **level** will be updated when it is changed.
 
 
-####options example
-Here is an example of an options varible which disables streaming and polls the device every hour:
+####config example
+Here is an example of an config varible which disables streaming and polls the device every hour:
 ```
-const options = {
+const config = {
 	"gpio":2,
   "streamPeriod":0, 
   "devicePoll":3600000
@@ -66,7 +66,7 @@ const options = {
 
   
 ####Default values
-If not specified in the options object, the program uses the following default values:
+If not specified in the config object, the program uses the following default values:
 * _name_: GPIO
 * _direction_: out
 * _edge_: none
@@ -87,7 +87,7 @@ const device = require('@agilatech/versalink-gpio-device');
 versalink().use(device).listen(1107);
 ```
 
-To easily specify some options, simply supply them in an object in the use statement like this:
+To easily specify some config options, simply supply them in an object in the use statement like this:
 ```
 versalink().use(device, { "streamPeriod":0, "devicePoll":7200000 });
 ```
