@@ -1,6 +1,6 @@
 {
   "name": "@agilatech/versalink-gpio-device",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "description": "Gpio output device driver for use in the Agilatech VersaLink system",
   "main": "gpio-scout.js",
   "directories": {
